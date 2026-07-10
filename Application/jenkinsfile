@@ -23,8 +23,8 @@ pipeline {
                 sh '''
                     cd Application
                     mvn sonar:sonar \
-                      -Dsonar.host.url=http://44.203.120.255:9000 \
-                      -Dsonar.login=squ_857bc378b399cc95305af238a1c3f0e10e243415
+                      -Dsonar.host.url=http://3.239.150.111:9000 \
+                      -Dsonar.login=squ_eca609a8ebe82a0f38ac90a19e6b9f805149247e
                 '''
             }
         }
@@ -33,7 +33,7 @@ pipeline {
             steps {
                 script {
                     echo 'Building Docker Image'
-                    sh 'cd Application && docker build -t devopshubg333/k8s:${BUILD_NUMBER} .'
+                    sh 'cd Application && docker build -t devopshubg333/k8s:${BUILD_NUMBER} -f Dockerfile .'
                 }
             }
         }
